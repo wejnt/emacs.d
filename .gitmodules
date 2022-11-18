@@ -28,3 +28,5 @@
 [submodule "magit"]
 	path = lisp/site/magit
 	url = https://github.com/magit/magit.git
+[submodule "lisp/site/all-the-icons"]
+	branch = master

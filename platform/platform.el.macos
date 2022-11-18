@@ -1,0 +1,47 @@
+;; Font
+;;(set-face-attribute 'default nil
+;;                    :family "Monaco" :height 126 :weight 'normal)
+(set-frame-font "Monaco 13" nil t)
+
+;; 设置屏幕宽高
+(setq initial-frame-alist
+      '((top . 0) (left . 170) (right . 0)
+        (width . 165) (height . 60)))
+
+(tool-bar-mode -1)                      ;关闭工具栏
+(scroll-bar-mode 0)                     ;关闭滚动条
+(blink-cursor-mode 0)                   ;关闭光标闪烁
+(modify-all-frames-parameters           ;使用更好看的光标
+ (list (cons 'cursor-type 'bar)))
+(global-hl-line-mode 1)                 ;开启当前行高亮
+
+;; 开启行号显示
+(require 'display-line-numbers)
+(defcustom display-line-numbers-exempt-modes
+  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode)
+  "Major modes on which to disable line numbers."
+  :group 'display-line-numbers
+  :type 'list
+  :version "green")
+
+(defun display-line-numbers--turn-on ()
+  "Turn on line numbers except for certain major modes.
+Exempt major modes are defined in `display-line-numbers-exempt-modes'."
+  (unless (or (minibufferp)
+              (member major-mode display-line-numbers-exempt-modes))
+    (display-line-numbers-mode)))
+
+(global-display-line-numbers-mode)
+;; end
+
+;; 系统共享剪切板
+;; see also:
+;;   https://www.emacswiki.org/emacs/CopyAndPaste
+;;   https://www.reddit.com/r/emacs/comments/5n9t3f/copypaste_from_system_clipboard_on_windows/
+(defun copy-from-osx ()
+  (shell-command-to-string "pbpaste"))
+(defun paste-to-osx (text &optional push)
+  (let ((process-connection-type nil))
+    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (process-send-string proc text)
+      (process-send-eof proc))))

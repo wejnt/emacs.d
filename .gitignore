@@ -1,0 +1,17 @@
+auto-save-list
+elpa
+.cask
+recentf
+platform.el
+.cache
+.projectile
+transient/
+places
+.DS_Store
+projects
+projectile-bookmarks.eld
+/node_modules/
+/package.json
+/package-lock.json
+/.lsp-session-v1
+*~

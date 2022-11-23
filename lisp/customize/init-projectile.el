@@ -1,15 +1,12 @@
 ;;; init-projectile.el --- 项目管理插件
 
-;; config
-
 (use-package projectile
   :load-path "~/.emacs.d/lisp/site/projectile"
+  :bind ("s-p" . projectile-command-map)
+  :custom (projectile-project-search-path '("~/code/rust"))
   :config
-  (projectile-mode +1)
-  ;; Recommended keymap prefix on macOS
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (setq projectile-completion-system 'ivy
+        projectile-project-root-functions '(projectile-root-local
+                                            projectile-root-bottom-up)))
 
-  (setq projectile-completion-system 'ivy))
 (provide 'init-projectile)
-
-;;; init-projectile.el ends here

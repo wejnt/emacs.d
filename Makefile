@@ -16,7 +16,7 @@ build:
 	mkdir build && cd build && \
 	cmake .. &&  make
 	echo "=============build emacs-libvterm finished==========="
-	cd $(shell pwd)/lisp/site/org-mode && make
+	cd $(shell pwd)/lisp/site/org-mode && make autoloads
 	cd $(shell pwd)/lisp/site/magit && make
 	cd $(shell pwd)/lisp/site/flycheck && make
 	cd $(shell pwd)/lisp/site/rust-mode && make build

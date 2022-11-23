@@ -38,3 +38,9 @@
 	path = lisp/site/magit
 	url = https://github.com/magit/magit.git
 	branch = master
+[submodule "projectile"]
+	path = lisp/site/projectile
+	url = https://github.com/bbatsov/projectile.git
+[submodule "yasnippet"]
+	path = lisp/site/yasnippet
+	url = https://github.com/joaotavora/yasnippet.git

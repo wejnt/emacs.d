@@ -65,4 +65,5 @@
   (if (bound-and-true-p socks-noproxy)
       (proxy-socks-disable)
     (proxy-socks-enable)))
+
 (provide 'init-proxy)

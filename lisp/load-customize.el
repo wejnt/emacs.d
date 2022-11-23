@@ -1,9 +1,21 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/customize")
-(require 'settings)
-(require 'theme)
+(require 'init-settings)
+
+(defun setup-client ()
+  (when (display-graphic-p)
+    (require 'init-theme)
+    (set-frame-font "Monaco-14" t t)
+    ;;设置窗口位置为屏库左上角(0,0)
+    (set-frame-position (selected-frame) 170 0)
+    ;;设置宽和高,我的十寸小本是110,33,大家可以调整这个参数来适应自己屏幕大小
+    (set-frame-width (selected-frame) 165)
+    (set-frame-height (selected-frame) 65)))
+
+(setup-client)
+(add-hook 'server-after-make-frame-hook 'setup-client)
+
 (require 'init-dashboard)
-(require 'init-modeline)
-(require 'org-mode)
+(require 'init-orgmode)
 (require 'init-projectile)
 (require 'init-lvy)
 (require 'init-lsp)

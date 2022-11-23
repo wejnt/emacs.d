@@ -3,6 +3,16 @@
 (setq auto-save-list-file-prefix nil)
 (setq auto-save-default nil)            ;不生成 #fname# 格式的临时文件
 
+;; 快速打开配置文件
+(defun open-init-file()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+;; 将函数 open-init-file 绑定到 <f2> 键上
+(global-set-key (kbd "<f2>") 'open-init-file)
+
+;; 关闭默认的哔哔提示音
+(setq ring-bell-function 'ignore)
+(electric-pair-mode t)
 ;; 编码设置
 (set-language-environment "utf-8")
 (set-buffer-file-coding-system 'utf-8)
@@ -73,4 +83,9 @@
         (tab-mark 9 [187 9] [92 9])))
 (global-whitespace-mode t)
 
-(provide 'settings)
+(use-package hungry-delete
+  :config
+  (setq hungry-delete-join-reluctantly t)
+  (global-hungry-delete-mode))
+
+(provide 'init-settings)

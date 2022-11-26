@@ -16,12 +16,8 @@
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode 'always)
     (pcase (cons (not (null (executable-find "git")))
-                 (not (null treemacs-python-executable)))
-      (`(t . t)
-       (treemacs-git-mode 'deferred))
-      (`(t . _)
-       (treemacs-git-mode 'simple)))
-    (treemacs-hide-gitignored-files-mode t))
+                 (not (null treemacs-python-executable))))
+    (treemacs-hide-gitignored-files-mode nil))
   :bind
   (:map global-map
         ("s-b s-b"       . treemacs-select-window)

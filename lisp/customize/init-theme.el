@@ -1,5 +1,3 @@
-(use-package all-the-icons
-  :load-path "~/.emacs.d/lisp/site/all-the-icons")
 
 ;; 主题 zenburn,doom-themes,solarized-theme
 (use-package doom-themes
@@ -19,15 +17,12 @@
   (doom-themes-org-config))
 
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
   :init
+  (doom-modeline-mode 1)
   (setq doom-modeline-support-imenu t)
   (setq doom-modeline-height 0.8)
   (setq doom-modeline-bar-width 4)
   (setq doom-modeline-icon t)
   (setq doom-modeline-lsp t))
-
-(use-package page-break-lines
-  :load-path "~/.emacs.d/lisp/site/page-break-lines")
 
 (provide 'init-theme)

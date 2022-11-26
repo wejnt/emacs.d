@@ -1,20 +1,3 @@
-;; Font
-;;(set-face-attribute 'default nil
-;;                    :family "Monaco" :height 126 :weight 'normal)
-(set-frame-font "Monaco 13" nil t)
-
-;; 设置屏幕宽高
-(setq initial-frame-alist
-      '((top . 0) (left . 170) (right . 0)
-        (width . 165) (height . 60)))
-
-(tool-bar-mode -1)                      ;关闭工具栏
-(scroll-bar-mode 0)                     ;关闭滚动条
-(blink-cursor-mode 0)                   ;关闭光标闪烁
-(modify-all-frames-parameters           ;使用更好看的光标
- (list (cons 'cursor-type 'bar)))
-(global-hl-line-mode 1)                 ;开启当前行高亮
-
 ;; 开启行号显示
 (require 'display-line-numbers)
 (defcustom display-line-numbers-exempt-modes

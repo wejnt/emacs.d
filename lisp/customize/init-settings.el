@@ -2,6 +2,7 @@
 (setq backup-inhibited t)               ;不产生备份
 (setq auto-save-list-file-prefix nil)
 (setq auto-save-default nil)            ;不生成 #fname# 格式的临时文件
+(global-auto-revert-mode t)
 
 ;; 快速打开配置文件
 (defun open-init-file()
@@ -83,9 +84,25 @@
         (tab-mark 9 [187 9] [92 9])))
 (global-whitespace-mode t)
 
+;; 绑定代码注释快捷键
+(global-set-key [?\s-/] 'comment-or-uncomment-region)
+(defun my-comment-or-uncomment-region (beg end &optional arg)
+  (interactive (if (use-region-p)
+                   (list (region-beginning) (region-end) nil)
+                 (list (line-beginning-position)
+                       (line-beginning-position 2))))
+  (comment-or-uncomment-region beg end arg)
+)
+(global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
+
 (use-package hungry-delete
   :config
   (setq hungry-delete-join-reluctantly t)
   (global-hungry-delete-mode))
+
+(use-package super-save
+  :ensure t
+  :config
+  (super-save-mode +1))
 
 (provide 'init-settings)

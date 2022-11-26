@@ -1,11 +1,12 @@
+
 ;; 设置软件源
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 	("melpa" . "https://melpa.org/packages/")
     ("melpa stable" . "https://stable.melpa.org/packages/")))
 
 ;; ------ Emacs China 源 ------
-;;(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-;;			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+;; (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+;;                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 ;; ------ 腾讯源 ------
 ;;(setq package-archives '(("gnu"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")

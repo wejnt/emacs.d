@@ -19,7 +19,10 @@
             (
              (,(all-the-icons-faicon "gitlab" :height 1.0 :v-adjust 0.0)
               "Github" "Browse Github"
-              (lambda (&rest _) (browse-url "https://github.com/wejnt/")) nil nil nil)
+              (lambda (&rest _) (browse-url "https://github.com/wejnt/")) success nil "")
+             (,(all-the-icons-alltheicon "rust" :height 1.2 :v-adjust 0.0)
+              "Crates.io" "Browse Crates.io dashboard"
+              (lambda (&rest _) (browse-url "https://crates.io/dashboard")) success "" nil)
              )))
     ;(setq dashboard-set-init-info t)
     (setq initial-buffer-choice

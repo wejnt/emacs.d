@@ -3,7 +3,7 @@
 (use-package projectile
   :load-path "~/.emacs.d/lisp/site/projectile"
   :bind ("s-p" . projectile-command-map)
-  :custom (projectile-project-search-path '("~/code/rust"))
+  :custom (projectile-project-search-path '("~/Code"))
   :config
   (setq projectile-completion-system 'ivy
         projectile-project-root-functions '(projectile-root-local

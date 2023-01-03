@@ -24,7 +24,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(super-save edwina carog rust-fmt rustfmt rustic bind-key doom-themes)))
+   '(doom-modeline super-save edwina carog rust-fmt rustfmt rustic bind-key doom-themes)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
